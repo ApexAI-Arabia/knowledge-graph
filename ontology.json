@@ -1,0 +1,32 @@
+
+{
+  "nodes": {
+    "Repository": ["name", "url", "language"],
+    "Component": ["name", "path", "description", "version"],
+    "Class": ["name", "line", "bases"],
+    "Function": [
+      "name",
+      "line",
+      "signature",
+      "return_type",
+      "is_async",
+      "parameters"
+    ],
+    "API": ["endpoint", "method"],
+    "Schema": ["name", "fields"],
+    "Documentation": ["title", "content", "source"]
+  },
+  "relationships": {
+    "EXPOSES": ["Repository", "Component"],
+    "CONTAINS": ["Component", "Class"],
+    "DEFINES": ["Class", "Function"],
+    "HAS_FUNCTION": ["Component", "Function"],
+    "DEPENDS_ON": ["Component", "Component"],
+    "CALLS": ["Function", "Function"],
+    "USES_TYPE": ["Function", "Schema"],
+    "IMPLEMENTS": ["Component", "Schema"],
+    "DOCUMENTED_BY": ["Component", "Documentation"],
+    "PROVIDES_API": ["Component", "API"],
+    "NESTED_IN": ["Function", "Function"]
+  }
+}
